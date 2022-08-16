@@ -274,7 +274,7 @@
               v-model="maxResults"
               placeholder="Select one"
               class="labeled-control__control"
-              :options="[5, 10, 15, 20, 50, 100]"
+              :options="[5, 10, 15, 20, 50]"
               :searchable="false"
               :close-on-select="true"
               :show-labels="false"
