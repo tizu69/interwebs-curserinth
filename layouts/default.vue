@@ -4,11 +4,8 @@
       <section class="navbar columns" role="navigation">
         <section class="skip column" role="presentation">
           <a href="#main">Skip to Main Content</a>
-          <a
-            v-show="!!registeredSkipLink"
-            :href="(registeredSkipLink || {}).id"
-            >{{ (registeredSkipLink || {}).text }}</a
-          >
+          <a v-show="!!registeredSkipLink" :href="(registeredSkipLink || {}).id">{{ (registeredSkipLink || {}).text
+          }}</a>
         </section>
         <section class="logo column" role="presentation">
           <NuxtLink to="/" aria-label="Modrinth home page">
@@ -34,138 +31,10 @@
           </section>
           <section class="column-grow user-outer" aria-label="Account links">
             <section class="user-controls">
-              <button
-                class="control-button"
-                title="Switch theme"
-                @click="changeTheme"
-              >
-                <MoonIcon
-                  v-if="$colorMode.value === 'light'"
-                  aria-hidden="true"
-                />
+              <button class="control-button" title="Switch theme" @click="changeTheme">
+                <MoonIcon v-if="$colorMode.value === 'light'" aria-hidden="true" />
                 <SunIcon v-else aria-hidden="true" />
               </button>
-              <nuxt-link
-                v-if="$auth.user"
-                to="/create/project"
-                class="control-button"
-                title="Create project"
-              >
-                <PlusIcon aria-hidden="true" />
-              </nuxt-link>
-              <nuxt-link
-                v-if="$auth.user"
-                to="/notifications"
-                class="control-button"
-                title="Notifications"
-              >
-                <NotificationIcon aria-hidden="true" />
-                <div v-if="$user.notifications.length > 0" class="bubble">
-                  {{ $user.notifications.length }}
-                </div>
-              </nuxt-link>
-              <nuxt-link
-                v-if="
-                  $auth.user &&
-                  ($auth.user.role === 'moderator' ||
-                    $auth.user.role === 'admin')
-                "
-                to="/moderation"
-                class="control-button"
-                title="Moderation"
-              >
-                <ModerationIcon aria-hidden="true" />
-                <div v-if="moderationNotifications > 0" class="bubble">
-                  {{ moderationNotifications }}
-                </div>
-              </nuxt-link>
-              <div v-if="$auth.user" ref="mobileMenu" class="dropdown">
-                <button class="control" value="Profile Dropdown">
-                  <img
-                    :src="$auth.user.avatar_url"
-                    class="user-icon"
-                    aria-hidden="true"
-                    alt="Your avatar"
-                  />
-                  <DropdownIcon class="caret" />
-                </button>
-                <ul class="content card" @click="removeFocus">
-                  <li>
-                    <NuxtLink
-                      class="item"
-                      :to="`/user/${$auth.user.username}`"
-                      @click="removeFocus"
-                    >
-                      <div class="title profile-link">
-                        <div class="username">@{{ $auth.user.username }}</div>
-                        <div class="prompt">Go to my profile</div>
-                      </div>
-                    </NuxtLink>
-                  </li>
-                  <hr class="divider" />
-                  <li>
-                    <NuxtLink class="item" to="/create/project">
-                      <PlusIcon class="icon" />
-                      <span class="title">Create a project</span>
-                    </NuxtLink>
-                  </li>
-                  <hr class="divider" />
-                  <li>
-                    <NuxtLink class="item" to="/notifications">
-                      <NotificationIcon class="icon" />
-                      <span class="title">Notifications</span>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="item" to="/settings/follows">
-                      <HeartIcon class="icon" />
-                      <span class="title">Following</span>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink class="item" to="/settings">
-                      <SettingsIcon class="icon" />
-                      <span class="title">Settings</span>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <NuxtLink
-                      v-if="
-                        $auth.user.role === 'moderator' ||
-                        $auth.user.role === 'admin'
-                      "
-                      class="item"
-                      to="/moderation"
-                    >
-                      <ModerationIcon class="icon" />
-                      <span class="title">Moderation</span>
-                    </NuxtLink>
-                  </li>
-                  <li>
-                    <button class="item" @click="changeTheme">
-                      <MoonIcon
-                        v-if="$colorMode.value === 'light'"
-                        class="icon"
-                      />
-                      <SunIcon v-else class="icon" />
-                      <span class="dropdown-item__text">Change theme</span>
-                    </button>
-                  </li>
-                  <hr class="divider" />
-                  <li>
-                    <button class="item" @click="logout">
-                      <LogOutIcon class="icon" />
-                      <span class="dropdown-item__text">Log out</span>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <section v-else class="auth-prompt">
-                <a :href="authUrl" class="log-in-button">
-                  <GitHubIcon aria-hidden="true" />
-                  Sign in with GitHub</a
-                >
-              </section>
             </section>
           </section>
         </section>
@@ -186,16 +55,8 @@
             <CrossIcon v-else />
           </button>
         </div>
-        <div
-          :class="{ 'disable-childern': !isBrowseMenuOpen }"
-          class="project-types"
-        >
-          <NuxtLink
-            :tabindex="isBrowseMenuOpen ? 0 : -1"
-            to="/mods"
-            class="tab"
-            @click.native="closeBrowseMenu()"
-          >
+        <div :class="{ 'disable-childern': !isBrowseMenuOpen }" class="project-types">
+          <NuxtLink :tabindex="isBrowseMenuOpen ? 0 : -1" to="/mods" class="tab" @click.native="closeBrowseMenu()">
             <span>Mods</span>
           </NuxtLink>
 
@@ -217,12 +78,7 @@
           <!--            <span>Resource Packs</span>-->
           <!--          </NuxtLink>-->
 
-          <NuxtLink
-            :tabindex="isBrowseMenuOpen ? 0 : -1"
-            to="/modpacks"
-            class="tab"
-            @click.native="closeBrowseMenu()"
-          >
+          <NuxtLink :tabindex="isBrowseMenuOpen ? 0 : -1" to="/modpacks" class="tab" @click.native="closeBrowseMenu()">
             <span>Modpacks</span>
           </NuxtLink>
         </div>
@@ -230,71 +86,19 @@
       <section ref="mobileMenu" class="mobile-menu">
         <div class="mobile-menu-wrapper">
           <div class="items-container rows">
-            <NuxtLink
-              v-if="$auth.user"
-              class="item user-item"
-              :to="`/user/${$auth.user.username}`"
-            >
-              <img :src="$auth.user.avatar_url" class="user-icon" />
-              <div class="profile-link">
-                <div class="username">@{{ $auth.user.username }}</div>
-                <div class="prompt">Go to my profile</div>
-              </div>
-            </NuxtLink>
-            <button v-if="$auth.user" class="item log-out" @click="logout">
-              <LogOutIcon class="icon" />
-              <span class="dropdown-item__text">Log out</span>
-            </button>
-            <NuxtLink v-if="$auth.user" class="item" to="/create/project">
-              <PlusIcon class="icon" />
-              <span class="title">Create a project</span>
-            </NuxtLink>
-            <NuxtLink v-if="$auth.user" class="item" to="/settings">
-              <SettingsIcon class="icon" />
-              <span class="title">Settings</span>
-            </NuxtLink>
-            <NuxtLink
-              v-if="
-                $auth.user &&
-                ($auth.user.role === 'moderator' || $auth.user.role === 'admin')
-              "
-              class="item"
-              to="/moderation"
-            >
-              <ModerationIcon class="icon" />
-              <span class="title">Moderation</span>
-            </NuxtLink>
-            <NuxtLink v-if="$auth.user" class="item" to="/settings/follows">
-              <HeartIcon class="icon" />
-              <span class="title">Following</span>
-            </NuxtLink>
-            <NuxtLink v-if="$auth.user" class="item" to="/notifications">
-              <NotificationIcon class="icon" />
-              <span class="title">Notifications</span>
-            </NuxtLink>
             <button class="item" @click="changeTheme">
               <MoonIcon v-if="$colorMode.value === 'light'" class="icon" />
               <SunIcon v-else class="icon" />
               <span class="dropdown-item__text">Change theme</span>
             </button>
-            <a v-if="!$auth.user" :href="authUrl" class="item log-in">
-              <GitHubIcon aria-hidden="true" />
-              Sign in with GitHub</a
-            >
           </div>
         </div>
       </section>
     </header>
     <main>
       <CookieConsent :mobile-menu-open="isBrowseMenuOpen" />
-      <notifications
-        group="main"
-        position="bottom right"
-        :max="5"
-        :class="{ 'browse-menu-open': isBrowseMenuOpen }"
-        :ignore-duplicates="true"
-        :duration="10000"
-      />
+      <notifications group="main" position="bottom right" :max="5" :class="{ 'browse-menu-open': isBrowseMenuOpen }"
+        :ignore-duplicates="true" :duration="10000" />
       <Nuxt id="main" />
     </main>
     <footer>
@@ -302,21 +106,14 @@
         <ModrinthLogo aria-hidden="true" class="text-logo" />
         <p>
           Modrinth is
-          <a
-            target="_blank"
-            href="https://github.com/modrinth"
-            class="text-link"
-          >
-            open source</a
-          >.
+          <a target="_blank" href="https://github.com/modrinth" class="text-link">
+            open source</a>.
         </p>
         <p>
-          {{ owner }}/{{ slug }} {{ branch }}@<a
-            target="_blank"
-            :href="'https://github.com/' + owner + '/' + slug + '/tree/' + hash"
-            class="text-link"
-            >{{ hash.substring(0, 7) }}</a
-          >
+          {{ owner }}/{{ slug }} {{ branch }}@<a target="_blank"
+            :href="'https://github.com/' + owner + '/' + slug + '/tree/' + hash" class="text-link">{{ hash.substring(0,
+                7)
+            }}</a>
         </p>
         <p>© Rinth, Inc.</p>
       </div>
@@ -325,10 +122,7 @@
         <nuxt-link to="/legal/terms">Terms</nuxt-link>
         <nuxt-link to="/legal/privacy">Privacy</nuxt-link>
         <nuxt-link to="/legal/rules">Rules</nuxt-link>
-        <a
-          target="_blank"
-          href="https://github.com/modrinth/knossos/blob/master/LICENSE.md"
-        >
+        <a target="_blank" href="https://github.com/modrinth/knossos/blob/master/LICENSE.md">
           License
         </a>
       </div>
@@ -467,9 +261,8 @@ export default {
       window.scrollTo(0, 0)
       const currentlyActive =
         this.$refs.mobileMenu.className === 'mobile-menu active'
-      this.$refs.mobileMenu.className = `mobile-menu${
-        currentlyActive ? '' : ' active'
-      }`
+      this.$refs.mobileMenu.className = `mobile-menu${currentlyActive ? '' : ' active'
+        }`
       document.body.scrollTop = 0
 
       document.body.style.overflowY =
@@ -487,12 +280,10 @@ export default {
     toggleBrowseMenu() {
       const currentlyActive =
         this.$refs.mobileNavBar.className === 'mobile-navbar expanded'
-      this.$refs.mobileNavBar.className = `mobile-navbar${
-        currentlyActive ? '' : ' expanded'
-      }`
-      this.$refs.layout.className = `layout${
-        currentlyActive ? '' : ' expanded-mobile-nav'
-      }`
+      this.$refs.mobileNavBar.className = `mobile-navbar${currentlyActive ? '' : ' expanded'
+        }`
+      this.$refs.layout.className = `layout${currentlyActive ? '' : ' expanded-mobile-nav'
+        }`
 
       this.isBrowseMenuOpen = !currentlyActive
 
@@ -618,6 +409,7 @@ export default {
         .badge {
           margin-left: 0.25rem;
           display: none;
+
           @media screen and (min-width: 430px) {
             display: unset;
           }
@@ -1203,4 +995,5 @@ export default {
   }
 }
 </style>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css">
+</style>
