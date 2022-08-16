@@ -15,7 +15,7 @@ export default {
     htmlAttrs: {
       lang: 'en',
     },
-    title: 'Modrinth: Download and publish Minecraft Mods',
+    title: 'CurseRinth: Download Minecraft Mods',
     meta: [
       {
         charset: 'utf-8',
@@ -28,7 +28,7 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Download Minecraft Fabric and Forge mods on Modrinth. Discover and publish projects on Modrinth with a modern, easy to use interface and API.',
+          'Download Minecraft Fabric and Forge mods on CurseRinth. Discover projects on CurseRinth with a modern, easy to use interface and API.',
       },
 
       {
@@ -39,7 +39,7 @@ export default {
       {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
-        content: 'Modrinth',
+        content: 'CurseRinth',
       },
       {
         hid: 'theme-color',
@@ -55,7 +55,7 @@ export default {
       {
         hid: 'og:site_name',
         name: 'og:site_name',
-        content: 'Modrinth',
+        content: 'CurseRinth',
       },
       {
         hid: 'og:description',
@@ -65,7 +65,7 @@ export default {
       {
         hid: 'og:title',
         name: 'og:title',
-        content: 'Modrinth',
+        content: 'CurseRinth',
       },
       {
         hid: 'og:type',
@@ -75,22 +75,17 @@ export default {
       {
         hid: 'og:url',
         name: 'og:url',
-        content: 'https://www.modrinth.com',
+        content: 'https://curserinth-api.kuylar.dev',
       },
       {
         hid: 'og:image',
         name: 'og:image',
-        content: 'https://cdn.modrinth.com/modrinth-new.png',
+        content: '', //todo: branding update
       },
       {
         hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary',
-      },
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@modrinth',
       },
     ],
     link: [
@@ -115,12 +110,13 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://cdn-raw.modrinth.com/fonts/inter/inter.css',
+        // todo: ask the modrinth team if its ok to keep this
       },
       {
         rel: 'search',
         type: 'application/opensearchdescription+xml',
         href: '/opensearch.xml',
-        title: 'Modrinth mods',
+        title: 'CurseRinth mods',
       },
     ],
     script: [],
@@ -219,7 +215,7 @@ export default {
     geoEdgeId: '',
   },
   robots: {
-    Sitemap: 'https://modrinth.com/sitemap.xml',
+    Sitemap: 'https://curserinth-api.kuylar.dev/sitemap.xml',
   },
   sitemap: {
     exclude: [
@@ -238,7 +234,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://staging-api.modrinth.com/v2/',
+    baseURL: 'https://curserinth-api.kuylar.dev/v2/',
     headers: {
       common: {
         Accept: 'application/json',
@@ -285,13 +281,13 @@ export default {
     height: '2px',
   },
   env: {
-    owner: process.env.VERCEL_GIT_REPO_OWNER || 'modrinth',
+    owner: process.env.VERCEL_GIT_REPO_OWNER || 'kuylar',
     slug: process.env.VERCEL_GIT_REPO_SLUG || 'knossos',
     branch: process.env.VERCEL_GIT_COMMIT_REF || 'master',
-    hash: process.env.VERCEL_GIT_COMMIT_SHA || 'unknown',
+    hash: process.env.VERCEL_GIT_COMMIT_SHA || 'unknown', // todo: get this to show the git commit sha of kuylar/knossos
     domain: getDomain(),
     authURLBase:
-      process.env.BROWSER_BASE_URL || 'https://staging-api.modrinth.com/v2/',
+      process.env.BROWSER_BASE_URL || 'https://curserinth-api.kuylar.dev/v2/',
   },
   publicRuntimeConfig: {
     axios: {
@@ -301,9 +297,7 @@ export default {
       ethicalAds: process.env.ETHICAL_ADS,
     },
     analytics: {
-      base_url:
-        process.env.BROWSER_ARIADNE_URL ||
-        'https://staging-ariadne.modrinth.com/v1/',
+      base_url: null,
     },
   },
   privateRuntimeConfig: {
@@ -315,43 +309,7 @@ export default {
         },
       },
     },
-  },
-  hooks: {
-    render: {
-      routeDone(url, result, context) {
-        setTimeout(() => {
-          axios
-            .post(
-              `${
-                process.env.ARIADNE_URL ||
-                'https://staging-ariadne.modrinth.com/v1/'
-              }view`,
-              {
-                url: getDomain() + url,
-              },
-              {
-                headers: {
-                  'Modrinth-Admin': process.env.ARIADNE_ADMIN_KEY || 'feedbeef',
-                  'User-Agent':
-                    context.req.rawHeaders[
-                      context.req.rawHeaders.findIndex(
-                        (x) => x === 'User-Agent'
-                      ) + 1
-                    ],
-                },
-              }
-            )
-            .then(() => {})
-            .catch((e) => {
-              console.error(
-                'An error occurred while registering the visit: ',
-                e
-              )
-            })
-        })
-      },
-    },
-  },
+  }
 }
 
 function getDomain() {
@@ -363,7 +321,7 @@ function getDomain() {
     } else if (process.env.VERCEL_URL) {
       return `https://${process.env.VERCEL_URL}`
     } else {
-      return 'https://modrinth.com'
+      return 'https://curserinth.kuylar.dev'
     }
   } else {
     return 'http://localhost:3000'
