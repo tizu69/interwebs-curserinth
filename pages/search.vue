@@ -142,36 +142,7 @@
               @toggle="toggleOrFacet"
             />
           </section>
-          <section
-            v-if="projectType !== 'resourcepack' && !isPlugins"
-            aria-label="Environment filters"
-          >
-            <h3 class="sidebar-menu-heading">Environments</h3>
-            <SearchFilter
-              :active-filters="selectedEnvironments"
-              display-name="Client"
-              facet-name="client"
-              @toggle="toggleEnv"
-            >
-              <ClientSide aria-hidden="true" />
-            </SearchFilter>
-            <SearchFilter
-              :active-filters="selectedEnvironments"
-              display-name="Server"
-              facet-name="server"
-              @toggle="toggleEnv"
-            >
-              <ServerSide aria-hidden="true" />
-            </SearchFilter>
-          </section>
           <h3 class="sidebar-menu-heading">Minecraft versions</h3>
-          <Checkbox
-            v-model="showSnapshots"
-            label="Include snapshots"
-            description="Include snapshots"
-            style="margin-bottom: 0.5rem"
-            :border="false"
-          />
           <multiselect
             v-model="selectedVersions"
             :options="
@@ -191,19 +162,6 @@
             placeholder="Choose versions..."
             @input="onSearchChange(1)"
           ></multiselect>
-          <h3 class="sidebar-menu-heading">Licenses</h3>
-          <Multiselect
-            v-model="selectedLicenses"
-            placeholder="Choose licenses..."
-            :loading="$tag.licenses.length === 0"
-            :options="$tag.licenses.map((x) => x.short.toUpperCase())"
-            :multiple="true"
-            :searchable="true"
-            :close-on-select="false"
-            :show-labels="false"
-            :allow-empty="true"
-            @input="onSearchChange(1)"
-          />
         </div>
       </section>
     </aside>
@@ -340,9 +298,6 @@ import SearchFilter from '~/components/ui/search/SearchFilter'
 import LogoAnimated from '~/components/ui/search/LogoAnimated'
 import Checkbox from '~/components/ui/Checkbox'
 
-import ClientSide from '~/assets/images/categories/client.svg?inline'
-import ServerSide from '~/assets/images/categories/server.svg?inline'
-
 import SearchIcon from '~/assets/images/utils/search.svg?inline'
 import ClearIcon from '~/assets/images/utils/clear.svg?inline'
 import EyeIcon from '~/assets/images/utils/eye.svg?inline'
@@ -359,8 +314,6 @@ export default {
     Multiselect,
     SearchFilter,
     Checkbox,
-    ClientSide,
-    ServerSide,
     SearchIcon,
     ClearIcon,
     EyeIcon,

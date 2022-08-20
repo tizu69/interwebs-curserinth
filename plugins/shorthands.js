@@ -204,11 +204,11 @@ export const formatCategory = (name) => {
   } else if (name === 'kitchen-sink') {
     return 'Kitchen Sink'
   }
-  return name.charAt(0).toUpperCase() + name.slice(1)
+  return (name.charAt(0).toUpperCase() + name.slice(1)).replaceAll('-', ' ')
 }
 
 export const formatCategoryHeader = (name) => {
-  return name.charAt(0).toUpperCase() + name.slice(1)
+  return 'Categories'
 }
 
 export const formatVersions = (versionArray, store) => {

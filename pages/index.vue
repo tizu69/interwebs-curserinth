@@ -1,23 +1,13 @@
 <template>
   <div class="page">
-    <div class="cover">
-      <img
-        class="cover-image"
-        src="~/assets/images/landing.svg"
-        width="100%"
-        alt="cover-image"
-      />
+    <div class="cover card">
       <div class="text">
-        <h1>Discover, Play, and Create Minecraft content</h1>
+        <h1>The bridge no one asked for!</h1>
         <h3>
-          Find enjoyable, quality content through our
-          <a href="https://github.com/modrinth" target="_blank">open-source</a>
-          modding platform built for the community. Create stuff, get
-          paid<sup>WIP</sup>, and deploy your project with our
-          <a href="https://docs.modrinth.com" target="_blank"
-            >fully documented</a
-          >
-          API!
+          Explore CurseForge's Minecraft mods & modpacks through
+          an API that is compatible with Modrinth's
+          <a href="https://docs.modrinth.com">fully documented</a>
+          API
         </h3>
         <form action="/mods">
           <div class="iconified-input">
@@ -70,83 +60,6 @@
         </div>
       </div>
       <div class="point left">
-        <div class="text-container">
-          <div>
-            <h3 class="subheader">Packed with features</h3>
-            <h1>Constantly evolving and improving</h1>
-            <p>
-              We are always adding new features and working towards making
-              Modrinth have the friendliest user experience possible. Right now,
-              we're working on finishing modpacks and finally paying out
-              creators on our site. If you have any more feature ideas, feel
-              free to join our
-              <a href="https://discord.gg/EUHuJHt" target="_blank">Discord</a>!
-            </p>
-            <div class="features">
-              <div class="feature completed">
-                <CheckIcon />
-                <p>
-                  <a href="https://github.com/modrinth" target="_blank">
-                    100% open source
-                  </a>
-                </p>
-              </div>
-              <div class="feature completed">
-                <CheckIcon />
-                <p>Real-time search</p>
-              </div>
-              <div class="feature completed">
-                <CheckIcon />
-                <p>Customizable project pages</p>
-              </div>
-              <div class="feature completed">
-                <CheckIcon />
-                <p>Robust team management</p>
-              </div>
-              <div class="feature completed">
-                <CheckIcon />
-                <p>
-                  <a href="https://docs.modrinth.com" target="_blank">
-                    Completely documented API
-                  </a>
-                </p>
-              </div>
-              <div class="feature completed">
-                <CheckIcon />
-                <p>Dependency management</p>
-              </div>
-              <div class="feature in-progress">
-                <CheckIcon />
-                <p>Modpacks</p>
-              </div>
-              <div class="feature in-progress">
-                <InProgressIcon />
-                <p>Creator payouts</p>
-              </div>
-              <div class="feature in-progress">
-                <InProgressIcon />
-                <p>More project types</p>
-              </div>
-              <div class="feature in-progress">
-                <InProgressIcon />
-                <p>Creator analytics</p>
-              </div>
-              <div class="feature in-progress">
-                <InProgressIcon />
-                <p>In-house authentication</p>
-              </div>
-              <div class="feature in-progress">
-                <InProgressIcon />
-                <p>Project comments</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="image">
-          <FeaturesIllustration />
-        </div>
-      </div>
-      <div class="point">
         <div class="image">
           <div class="terminal">
             <div class="line-nums">
@@ -168,19 +81,18 @@
             </div>
             <div class="text" v-highlightjs>
               <span class="command">curl</span>
-              <span>https://api.modrinth.com/v2/project/sodium</span>
+              <span>https://curserinth-api.kuylar.dev/v2/project/jei</span>
               <pre><code class="language-json">
 {
-  "id": "AANobbMI",
-  "slug": "sodium",
+  "id": "238222",
+  "slug": "jei",
   "project_type": "mod",
-  "team": "4reLOAKe",
-  "title": "Sodium",
-  "description": "Modern rendering engine and client-side optimization mod for Minecraft",
+  "team": "32358",
+  "title": "Just Enough Items (JEI)",
+  "description": "View Items and Recipes",
   "body": "...",
-  "body_url": "https://cdn.modrinth.com/data/AANobbMI/description.md",
-  "published": "2021-01-03T00:53:34.185936Z",
-  "updated": "2022-01-14T02:35:40.373686Z",
+  "published": "2015-11-23T22:55:58.8400000Z",
+  "updated": "2022-08-18T05:46:50.8900000Z",
   ...
 }</code></pre>
             </div>
@@ -190,13 +102,12 @@
           <h3 class="subheader">Simple to integrate</h3>
           <h1>An open-source API for everyone to use</h1>
           <p>
-            We have created an open source modding platform for the community.
-            We're committed to open source so the community can trust us as
-            their modding platform. Our API is
+            The CurseRinth API is based on the Modrinth's
             <a href="https://docs.modrinth.com" target="_blank"
               >fully documented</a
             >
-            so anyone can use it. We will never add restrictions on our API!
+            API, so that existing projects can just try CurseRinth
+            can just try it by just changing a single URL
           </p>
         </div>
       </div>
@@ -234,17 +145,8 @@ export default {
   margin: 0 auto;
 
   .cover {
-    img {
-      border-radius: var(--size-rounded-card);
-      width: 100%;
-      height: 40rem;
-      object-fit: cover;
-      object-position: 15% 12.5%;
-
-      @media screen and (max-width: 1280px) {
-        border-radius: 0;
-      }
-    }
+    height: 25rem;
+    background-color: #26292f;
 
     .text {
       position: absolute;
@@ -375,6 +277,7 @@ export default {
           font-family: monospace;
           font-size: 80%;
           line-height: 1.5rem;
+          width: 30rem;
 
           .line-nums {
             display: flex;

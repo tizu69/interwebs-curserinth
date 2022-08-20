@@ -8,7 +8,7 @@
           }}</a>
         </section>
         <section class="logo column" role="presentation">
-          <NuxtLink to="/" aria-label="Modrinth home page">
+          <NuxtLink to="/" aria-label="CurseRinth home page">
             <ModrinthLogo aria-hidden="true" class="text-logo" />
           </NuxtLink>
         </section>
@@ -102,11 +102,11 @@
       <Nuxt id="main" />
     </main>
     <footer>
-      <div class="logo-info" role="region" aria-label="Modrinth information">
+      <div class="logo-info" role="region" aria-label="CurseRinth information">
         <ModrinthLogo aria-hidden="true" class="text-logo" />
         <p>
-          Modrinth is
-          <a target="_blank" href="https://github.com/modrinth" class="text-link">
+          CurseRinth is
+          <a target="_blank" href="https://github.com/kuylar/curserinth" class="text-link">
             open source</a>.
         </p>
         <p>
@@ -115,29 +115,24 @@
                 7)
             }}</a>
         </p>
-        <p>© Rinth, Inc.</p>
+        <p>Not affiliaated with Rinth, Inc.</p>
       </div>
       <div class="links links-1" role="region" aria-label="Legal">
         <h4 aria-hidden="true">Legal</h4>
-        <nuxt-link to="/legal/terms">Terms</nuxt-link>
-        <nuxt-link to="/legal/privacy">Privacy</nuxt-link>
-        <nuxt-link to="/legal/rules">Rules</nuxt-link>
-        <a target="_blank" href="https://github.com/modrinth/knossos/blob/master/LICENSE.md">
+        <a target="_blank" href="mailto:contact@kuylar.dev">
+          Contact
+        </a>
+        <a target="_blank" href="https://github.com/kuylar/knossos/blob/master/LICENSE.md">
           License
         </a>
       </div>
       <div class="links links-2" role="region" aria-label="Resources">
         <h4 aria-hidden="true">Resources</h4>
-        <a target="_blank" href="https://blog.modrinth.com">Blog</a>
-        <a target="_blank" href="https://discord.gg/EUHuJHt">Discord</a>
-        <a target="_blank" href="https://github.com/modrinth/knossos">GitHub</a>
+        <a target="_blank" href="https://discord.gg/HFCUCFpayh">Discord</a>
+        <a target="_blank" href="https://github.com/kuylar/knossos">GitHub</a>
         <a target="_blank" href="https://docs.modrinth.com">Docs</a>
       </div>
       <div class="buttons">
-        <nuxt-link to="/settings/privacy" class="iconified-button">
-          <ShieldIcon aria-hidden="true" />
-          Privacy settings
-        </nuxt-link>
         <button class="iconified-button" @click="changeTheme">
           <MoonIcon v-if="$colorMode.value === 'light'" aria-hidden="true" />
           <SunIcon v-else aria-hidden="true" />

@@ -90,24 +90,6 @@ export default {
     ],
     link: [
       {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico',
-        media: '(prefers-color-scheme:no-preference)',
-      },
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon-dark.ico',
-        media: '(prefers-color-scheme:dark)',
-      },
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico',
-        media: '(prefers-color-scheme:light)',
-      },
-      {
         rel: 'stylesheet',
         href: 'https://cdn-raw.modrinth.com/fonts/inter/inter.css',
         // todo: ask the modrinth team if its ok to keep this
