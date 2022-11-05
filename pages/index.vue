@@ -32,19 +32,10 @@
       <div class="point">
         <div class="image">
           <video
-            v-if="$colorMode.value === 'light'"
             autoplay
             loop
             muted
-            src="https://cdn.modrinth.com/homepage/search.mp4"
-            playsinline
-          />
-          <video
-            v-else
-            autoplay
-            loop
-            muted
-            src="https://cdn.modrinth.com/homepage/search-dark.mp4"
+            src="https://kuylar.dev/static/cr/search.mp4"
             playsinline
           />
         </div>
@@ -117,19 +108,12 @@
 
 <script>
 import SearchIcon from '~/assets/images/utils/search.svg?inline'
-import CheckIcon from '~/assets/images/utils/check.svg?inline'
-import InProgressIcon from '~/assets/images/utils/updated.svg?inline'
 import RightArrowIcon from '~/assets/images/utils/right-arrow.svg?inline'
-
-import FeaturesIllustration from '~/assets/images/illustrations/features.svg?inline'
 
 export default {
   components: {
     SearchIcon,
     RightArrowIcon,
-    CheckIcon,
-    InProgressIcon,
-    FeaturesIllustration,
   },
   auth: false,
   data() {
