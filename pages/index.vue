@@ -36,7 +36,7 @@
             autoplay
             loop
             muted
-            src="~/assets/images/search.mp4"
+            src="https://cdn.modrinth.com/homepage/search.mp4"
             playsinline
           />
           <video
@@ -44,7 +44,7 @@
             autoplay
             loop
             muted
-            src="~/assets/images/search-dark.mp4"
+            src="https://cdn.modrinth.com/homepage/search-dark.mp4"
             playsinline
           />
         </div>

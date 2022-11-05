@@ -18,12 +18,12 @@
               <NuxtLink to="/mods" class="tab">
                 <span>Mods</span>
               </NuxtLink>
-              <!--              <NuxtLink to="/plugins" class="tab">-->
-              <!--                <span>Plugins</span>-->
-              <!--              </NuxtLink>-->
-              <!--              <NuxtLink to="/resourcepacks" class="tab">-->
-              <!--                <span>Resource Packs</span>-->
-              <!--              </NuxtLink>-->
+              <NuxtLink to="/plugins" class="tab">
+                <span>Plugins</span>
+              </NuxtLink>
+              <NuxtLink to="/resourcepacks" class="tab">
+                <span>Resource Packs</span>
+              </NuxtLink>
               <NuxtLink to="/modpacks" class="tab">
                 <span>Modpacks</span>
               </NuxtLink>
@@ -59,26 +59,29 @@
           <NuxtLink :tabindex="isBrowseMenuOpen ? 0 : -1" to="/mods" class="tab" @click.native="closeBrowseMenu()">
             <span>Mods</span>
           </NuxtLink>
+          <NuxtLink
+            :tabindex="isBrowseMenuOpen ? 0 : -1"
+            to="/plugins"
+            class="tab"
+            @click.native="closeBrowseMenu()"
+          >
+            <span>Plugins</span>
+          </NuxtLink>
 
-          <!--          <NuxtLink-->
-          <!--            :tabindex="isBrowseMenuOpen ? 0 : -1"-->
-          <!--            to="/plugins"-->
-          <!--            class="tab"-->
-          <!--            @click.native="closeBrowseMenu()"-->
-          <!--          >-->
-          <!--            <span>Plugins</span>-->
-          <!--          </NuxtLink>-->
-
-          <!--          <NuxtLink-->
-          <!--            :tabindex="isBrowseMenuOpen ? 0 : -1"-->
-          <!--            to="/resourcepacks"-->
-          <!--            class="tab"-->
-          <!--            @click.native="closeBrowseMenu()"-->
-          <!--          >-->
-          <!--            <span>Resource Packs</span>-->
-          <!--          </NuxtLink>-->
-
-          <NuxtLink :tabindex="isBrowseMenuOpen ? 0 : -1" to="/modpacks" class="tab" @click.native="closeBrowseMenu()">
+          <NuxtLink
+            :tabindex="isBrowseMenuOpen ? 0 : -1"
+            to="/resourcepacks"
+            class="tab"
+            @click.native="closeBrowseMenu()"
+          >
+            <span>Resource Packs</span>
+          </NuxtLink>
+          <NuxtLink
+            :tabindex="isBrowseMenuOpen ? 0 : -1"
+            to="/modpacks"
+            class="tab"
+            @click.native="closeBrowseMenu()"
+          >
             <span>Modpacks</span>
           </NuxtLink>
         </div>
@@ -96,9 +99,14 @@
       </section>
     </header>
     <main>
-      <CookieConsent :mobile-menu-open="isBrowseMenuOpen" />
-      <notifications group="main" position="bottom right" :max="5" :class="{ 'browse-menu-open': isBrowseMenuOpen }"
-        :ignore-duplicates="true" :duration="10000" />
+      <notifications
+        group="main"
+        position="bottom right"
+        :max="5"
+        :class="{ 'browse-menu-open': isBrowseMenuOpen }"
+        :ignore-duplicates="true"
+        :duration="10000"
+      />
       <Nuxt id="main" />
     </main>
     <footer>
@@ -153,7 +161,6 @@ import CrossIcon from '~/assets/images/utils/x.svg?inline'
 
 import NotificationIcon from '~/assets/images/sidebar/notifications.svg?inline'
 import SettingsIcon from '~/assets/images/sidebar/settings.svg?inline'
-import ShieldIcon from '~/assets/images/utils/shield.svg?inline'
 import ModerationIcon from '~/assets/images/sidebar/admin.svg?inline'
 import HomeIcon from '~/assets/images/sidebar/home.svg?inline'
 
@@ -165,8 +172,6 @@ import LogOutIcon from '~/assets/images/utils/log-out.svg?inline'
 import HeartIcon from '~/assets/images/utils/heart.svg?inline'
 
 import GitHubIcon from '~/assets/images/utils/github.svg?inline'
-
-import CookieConsent from '~/components/ads/CookieConsent'
 
 const overflowStyle = 'scroll'
 
@@ -181,9 +186,7 @@ export default {
     HomeIcon,
     CrossIcon,
     HamburgerIcon,
-    CookieConsent,
     SettingsIcon,
-    ShieldIcon,
     ModerationIcon,
     PlusIcon,
     DropdownIcon,

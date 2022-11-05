@@ -101,7 +101,6 @@ export default {
         title: 'CurseRinth mods',
       },
     ],
-    script: [],
   },
 
   vue: {

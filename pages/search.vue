@@ -59,7 +59,9 @@
                 :key="category.name"
                 :active-filters="facets"
                 :display-name="$formatCategory(category.name)"
-                :facet-name="`categories:${category.name}`"
+                :facet-name="`categories:'${encodeURIComponent(
+                  category.name
+                )}'`"
                 :icon="header === 'resolutions' ? null : category.icon"
                 @toggle="toggleFacet"
               />
@@ -104,7 +106,7 @@
               ref="loaderFilters"
               :active-filters="orFacets"
               :display-name="$formatCategory(loader.name)"
-              :facet-name="`categories:${loader.name}`"
+              :facet-name="`categories:'${encodeURIComponent(loader.name)}'`"
               :icon="loader.icon"
               @toggle="toggleOrFacet"
             />
@@ -137,7 +139,7 @@
               ref="platformFilters"
               :active-filters="orFacets"
               :display-name="$formatCategory(loader.name)"
-              :facet-name="`categories:${loader.name}`"
+              :facet-name="`categories:'${encodeURIComponent(loader.name)}'`"
               :icon="loader.icon"
               @toggle="toggleOrFacet"
             />
@@ -181,8 +183,8 @@
         with
         <a href="https://atlauncher.com/about" target="_blank">ATLauncher</a>,
         <a href="https://multimc.org/" target="_blank">MultiMC</a>, and
-        <a href="https://polymc.org" target="_blank">PolyMC</a>. Pack creators
-        can reference our documentation on
+        <a href="https://prismlauncher.org" target="_blank">Prism Launcher</a>.
+        Pack creators can reference our documentation on
         <a
           href="https://docs.modrinth.com/docs/modpacks/creating_modpacks/"
           target="_blank"
@@ -191,6 +193,12 @@
         <a href="https://discord.gg/EUHuJHt" target="_blank">Discord</a>
         for support.
       </div>
+      <Advertisement
+        type="banner"
+        small-screen="square"
+        ethical-ads-small
+        ethical-ads-big
+      />
       <div class="card search-controls">
         <div class="iconified-input">
           <label class="hidden" for="search">Search</label>
@@ -248,12 +256,6 @@
         @switch-page="onSearchChange"
       ></pagination>
       <div>
-        <Advertisement
-          type="banner"
-          small-screen="square"
-          ethical-ads-small
-          ethical-ads-big
-        />
         <div v-if="$fetchState.pending" class="no-results">
           <LogoAnimated aria-hidden="true" />
           <p>Loading...</p>
@@ -275,6 +277,7 @@
             :client-side="result.client_side"
             :server-side="result.server_side"
             :categories="result.display_categories"
+            :search="true"
           />
           <div v-if="results && results.length === 0" class="no-results">
             <p>No results found for your query!</p>
@@ -507,16 +510,23 @@ export default {
         this.orFacets.splice(index, 1)
       } else {
         if (elementName === 'categories:purpur') {
-          this.orFacets.push('categories:paper')
-          this.orFacets.push('categories:spigot')
-          this.orFacets.push('categories:bukkit')
+          if (!this.orFacets.includes('categories:paper'))
+            this.orFacets.push('categories:paper')
+          if (!this.orFacets.includes('categories:spigot'))
+            this.orFacets.push('categories:spigot')
+          if (!this.orFacets.includes('categories:bukkit'))
+            this.orFacets.push('categories:bukkit')
         } else if (elementName === 'categories:paper') {
-          this.orFacets.push('categories:spigot')
-          this.orFacets.push('categories:bukkit')
+          if (!this.orFacets.includes('categories:spigot'))
+            this.orFacets.push('categories:spigot')
+          if (!this.orFacets.includes('categories:bukkit'))
+            this.orFacets.push('categories:bukkit')
         } else if (elementName === 'categories:spigot') {
-          this.orFacets.push('categories:bukkit')
+          if (!this.orFacets.includes('categories:bukkit'))
+            this.orFacets.push('categories:bukkit')
         } else if (elementName === 'categories:waterfall') {
-          this.orFacets.push('categories:bungeecord')
+          if (!this.orFacets.includes('categories:bungeecord'))
+            this.orFacets.push('categories:bungeecord')
         }
         this.orFacets.push(elementName)
       }
@@ -569,12 +579,14 @@ export default {
           } else if (this.isPlugins) {
             formattedFacets.push(
               this.$tag.loaderData.allPluginLoaders.map(
-                (x) => `categories:${x}`
+                (x) => `categories:'${encodeURIComponent(x)}'`
               )
             )
           } else if (this.projectType === 'mod') {
             formattedFacets.push(
-              this.$tag.loaderData.modLoaders.map((x) => `categories:${x}`)
+              this.$tag.loaderData.modLoaders.map(
+                (x) => `categories:'${encodeURIComponent(x)}'`
+              )
             )
           }
 
