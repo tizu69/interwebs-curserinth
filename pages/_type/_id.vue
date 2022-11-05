@@ -511,15 +511,6 @@
               >Prism Launcher</a
             >.
           </div>
-          <Advertisement
-            v-if="
-              project.status === 'approved' || project.status === 'unlisted'
-            "
-            type="banner"
-            small-screen="square"
-            ethical-ads-small
-            ethical-ads-big
-          />
           <div class="card styled-tabs">
             <nuxt-link
               :to="`/${project.project_type}/${
@@ -604,14 +595,12 @@ import PayPalIcon from '~/assets/images/external/paypal.svg?inline'
 import OpenCollectiveIcon from '~/assets/images/external/opencollective.svg?inline'
 import UnknownIcon from '~/assets/images/utils/unknown-donation.svg?inline'
 import ChevronRightIcon from '~/assets/images/utils/chevron-right.svg?inline'
-import Advertisement from '~/components/ads/Advertisement'
 import VersionBadge from '~/components/ui/Badge'
 import Categories from '~/components/ui/search/Categories'
 
 export default {
   components: {
     VersionBadge,
-    Advertisement,
     IssuesIcon,
     DownloadIcon,
     CalendarIcon,

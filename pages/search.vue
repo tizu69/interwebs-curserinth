@@ -193,12 +193,6 @@
         <a href="https://discord.gg/EUHuJHt" target="_blank">Discord</a>
         for support.
       </div>
-      <Advertisement
-        type="banner"
-        small-screen="square"
-        ethical-ads-small
-        ethical-ads-big
-      />
       <div class="card search-controls">
         <div class="iconified-input">
           <label class="hidden" for="search">Search</label>
@@ -306,12 +300,9 @@ import ClearIcon from '~/assets/images/utils/clear.svg?inline'
 import EyeIcon from '~/assets/images/utils/eye.svg?inline'
 import EyeOffIcon from '~/assets/images/utils/eye-off.svg?inline'
 
-import Advertisement from '~/components/ads/Advertisement'
-
 export default {
   auth: false,
   components: {
-    Advertisement,
     SearchResult,
     Pagination,
     Multiselect,

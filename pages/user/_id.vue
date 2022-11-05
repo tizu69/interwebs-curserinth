@@ -69,7 +69,6 @@
       </aside>
     </div>
     <div class="normal-page__content">
-      <Advertisement />
       <nav class="card user-navigation">
         <ThisOrThat v-model="selectedProjectType" :items="projectTypes" />
         <nuxt-link
@@ -134,7 +133,6 @@
 import ProjectCard from '~/components/ui/ProjectCard'
 import ThisOrThat from '~/components/ui/ThisOrThat'
 import Badge from '~/components/ui/Badge'
-import Advertisement from '~/components/ads/Advertisement'
 
 import GitHubIcon from '~/assets/images/utils/github.svg?inline'
 import ReportIcon from '~/assets/images/utils/report.svg?inline'
@@ -159,7 +157,6 @@ export default {
     ThisOrThat,
     UpToDate,
     UserIcon,
-    Advertisement,
   },
   async asyncData(data) {
     try {
