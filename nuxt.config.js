@@ -30,12 +30,6 @@ export default {
         content:
           'Download Minecraft Fabric and Forge mods on CurseRinth. Discover projects on CurseRinth with a modern, easy to use interface and API.',
       },
-
-      {
-        hid: 'publisher',
-        name: 'publisher',
-        content: 'Rinth, Inc.',
-      },
       {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
@@ -44,7 +38,7 @@ export default {
       {
         hid: 'theme-color',
         name: 'theme-color',
-        content: '#30b27b',
+        content: '#d68914',
       },
       {
         hid: 'color-scheme',
@@ -60,7 +54,7 @@ export default {
       {
         hid: 'og:description',
         name: 'og:description',
-        content: 'An open source modding platform',
+        content: 'A modding platform',
       },
       {
         hid: 'og:title',
@@ -75,7 +69,7 @@ export default {
       {
         hid: 'og:url',
         name: 'og:url',
-        content: 'https://curserinth-api.kuylar.dev',
+        content: 'https://curserinth.kuylar.dev',
       },
       {
         hid: 'og:image',
