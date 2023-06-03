@@ -118,10 +118,10 @@
             open source</a>.
         </p>
         <p>
-          {{ owner }}/{{ slug }} {{ branch }}@<a target="_blank"
-            :href="'https://github.com/' + owner + '/' + slug + '/tree/' + hash" class="text-link">{{ hash.substring(0,
-                7)
-            }}</a>
+          <a target="_blank"
+            :href="'https://github.com/' + owner + '/' + slug" class="text-link">
+            {{ owner }}/{{ slug }}#{{ branch }}
+          </a>
         </p>
         <p>Not affiliated with Rinth, Inc.</p>
       </div>
