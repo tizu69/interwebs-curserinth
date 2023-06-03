@@ -249,7 +249,7 @@ export const formatVersions = (versionArray, store) => {
       if (
         (index - intervalBase[intervalBase.length - 1][1] === 1 ||
           releaseIndex - intervalBase[intervalBase.length - 1][2] === 1) &&
-        (allVersions[intervalBase[0][1]].version_type === 'release' ||
+        (allVersions[Math.max(0, intervalBase[0][1])].version_type === 'release' ||
           allVersions[index].version_type !== 'release')
       ) {
         intervalBase[1] = [versionArray[i], index, releaseIndex]
