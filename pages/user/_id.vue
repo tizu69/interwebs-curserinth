@@ -224,7 +224,7 @@ export default {
   },
   head() {
     return {
-      title: this.user.username + ' - Modrinth',
+      title: this.user.username + ' - CurseRinth',
       meta: [
         {
           hid: 'og:type',
@@ -250,8 +250,7 @@ export default {
           hid: 'description',
           name: 'description',
           content:
-            this.user.bio +
-            ' - View Minecraft mods on Modrinth today! Modrinth is a new and modern Minecraft modding platform.',
+            this.user.bio,
         },
         {
           hid: 'og:url',
