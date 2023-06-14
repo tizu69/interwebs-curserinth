@@ -468,12 +468,7 @@
             class="card warning"
             aria-label="Warning"
           >
-            {{ project.title }} is not viewable in search — either because the
-            author has marked it as such or because it has been found to be in
-            violation of one of
-            <nuxt-link to="/legal/rules">Modrinth's content rules</nuxt-link>.
-            Modrinth makes no guarantees as to whether {{ project.title }} is
-            safe for use in a multiplayer context.
+            {{ project.title }} is unlisted
           </div>
           <div
             v-if="project.status === 'archived'"
@@ -743,7 +738,7 @@ export default {
       title: `${this.project.title} - ${
         this.project.project_type.charAt(0).toUpperCase() +
         this.project.project_type.slice(1)
-      }s - Modrinth`,
+      }s - CurseRinth`,
       meta: [
         {
           hid: 'og:type',
@@ -768,7 +763,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.project.title}: ${this.project.description} View other minecraft mods on Modrinth today! Modrinth is a new and modern Minecraft modding platform supporting both the Forge and Fabric mod loaders.`,
+          content: `${this.project.title}: ${this.project.description}`,
         },
         {
           hid: 'og:url',

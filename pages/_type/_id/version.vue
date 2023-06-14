@@ -488,7 +488,7 @@
             <h3>External Dependencies</h3>
             <InfoIcon
               v-tooltip="
-                'Mods not part of the Modrinth platform but depended on by this project'
+                'Mods not part of the CurseRinth platform but depended on by this project'
               "
             />
           </div>

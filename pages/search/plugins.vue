@@ -6,17 +6,17 @@
 export default {
   name: 'Plugins',
   head: {
-    title: 'Plugins - Modrinth',
+    title: 'Plugins - CurseRinth',
     meta: [
       {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
-        content: 'Plugins - Modrinth',
+        content: 'Plugins - CurseRinth',
       },
       {
         hid: 'og:title',
         name: 'og:title',
-        content: 'Plugins - Modrinth',
+        content: 'Plugins - CurseRinth',
       },
       {
         hid: 'og:url',

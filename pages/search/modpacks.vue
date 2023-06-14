@@ -6,7 +6,7 @@
 export default {
   name: 'Modpacks',
   head: {
-    title: 'Modpacks - Modrinth',
+    title: 'Modpacks - CurseRinth',
     meta: [
       {
         hid: 'apple-mobile-web-app-title',
