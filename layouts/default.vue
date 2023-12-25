@@ -213,6 +213,7 @@ export default {
       isBrowseMenuOpen: false,
       registeredSkipLink: null,
       moderationNotifications: 0,
+      shouldShowMigrationHeader: false,
     }
   },
   async fetch() {
@@ -238,10 +239,6 @@ export default {
   computed: {
     authUrl() {
       return `${process.env.authURLBase}auth/init?url=${process.env.domain}${this.$route.path}`
-    },
-    shouldShowMigrationHeader() {
-      // Check if the user is not visiting from the domain tizuhehe.vercel.app
-      return window.location.hostname !== 'tizuhehe.vercel.app';
     },
   },
   watch: {
@@ -307,6 +304,9 @@ export default {
       this.$refs.layout.className = `layout`
 
       this.isBrowseMenuOpen = false
+    },
+    mounted() {
+      this.shouldShowMigrationHeader = window.location.hostname !== 'tizuhehe.vercel.app';
     },
     async logout() {
       this.$cookies.set('auth-token-reset', true)
