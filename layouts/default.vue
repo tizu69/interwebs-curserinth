@@ -1,12 +1,5 @@
 <template>
-  <div ref="layout" class="layout">
-    <header v-if="shouldShowMigrationHeader" class="migration-header">
-      <p>
-        We're moving! Please migrate to
-        <a href="https://tizuhehe.vercel.app/curserinth" target="_blank">https://tizuhehe.vercel.app/curserinth</a> asap.
-      </p>
-    </header>
-    
+  <div ref="layout" class="layout">    
     <header class="site-header" role="presentation">
       <section class="navbar columns" role="navigation">
         <section class="skip column" role="presentation">
@@ -235,9 +228,6 @@ export default {
 
       this.moderationNotifications = projects.length + reports.length
     }
-  },
-  mounted() {
-    this.shouldShowMigrationHeader = window.location.hostname !== 'tizuhehe.vercel.app';
   },
   computed: {
     authUrl() {
