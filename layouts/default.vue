@@ -1,5 +1,12 @@
 <template>
   <div ref="layout" class="layout">
+    <header v-if="shouldShowMigrationHeader" class="migration-header">
+      <p>
+        We're moving! Please migrate to
+        <a href="https://tizuhehe.vercel.app/curserinth" target="_blank">https://tizuhehe.vercel.app/curserinth</a> asap.
+      </p>
+    </header>
+    
     <header class="site-header" role="presentation">
       <section class="navbar columns" role="navigation">
         <section class="skip column" role="presentation">
@@ -231,6 +238,10 @@ export default {
   computed: {
     authUrl() {
       return `${process.env.authURLBase}auth/init?url=${process.env.domain}${this.$route.path}`
+    },
+    shouldShowMigrationHeader() {
+      // Check if the user is not visiting from the domain tizuhehe.vercel.app
+      return window.location.hostname !== 'tizuhehe.vercel.app';
     },
   },
   watch: {
@@ -790,6 +801,13 @@ export default {
         height: var(--size-mobile-navbar-height-expanded);
       }
     }
+  }
+
+  .migration-header {
+    width: 100;
+    background-color: #f38ba8;
+    color: #000000;
+    text-align: center;
   }
 
   .mobile-menu {
