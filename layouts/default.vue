@@ -236,6 +236,9 @@ export default {
       this.moderationNotifications = projects.length + reports.length
     }
   },
+  mounted() {
+    this.shouldShowMigrationHeader = window.location.hostname !== 'tizuhehe.vercel.app';
+  },
   computed: {
     authUrl() {
       return `${process.env.authURLBase}auth/init?url=${process.env.domain}${this.$route.path}`
@@ -304,9 +307,6 @@ export default {
       this.$refs.layout.className = `layout`
 
       this.isBrowseMenuOpen = false
-    },
-    mounted() {
-      this.shouldShowMigrationHeader = window.location.hostname !== 'tizuhehe.vercel.app';
     },
     async logout() {
       this.$cookies.set('auth-token-reset', true)
