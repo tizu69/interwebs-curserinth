@@ -1,5 +1,5 @@
 <template>
-  <div ref="layout" class="layout">    
+  <div ref="layout" class="layout">
     <header class="site-header" role="presentation">
       <section class="navbar columns" role="navigation">
         <section class="skip column" role="presentation">
@@ -18,9 +18,9 @@
               <NuxtLink to="/mods" class="tab">
                 <span>Mods</span>
               </NuxtLink>
-              <NuxtLink to="/plugins" class="tab">
+              <!-- <NuxtLink to="/plugins" class="tab">
                 <span>Plugins</span>
-              </NuxtLink>
+              </NuxtLink> -->
               <NuxtLink to="/resourcepacks" class="tab">
                 <span>Resource Packs</span>
               </NuxtLink>

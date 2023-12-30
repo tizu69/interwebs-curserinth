@@ -173,25 +173,8 @@
         class="card warning"
         aria-label="Warning"
       >
-        Modpack support is currently in alpha, and you may encounter issues. Our
-        documentation includes instructions on
-        <a
-          href="https://docs.modrinth.com/docs/modpacks/playing_modpacks/"
-          target="_blank"
-          >playing modpacks</a
-        >
-        with
-        <a href="https://atlauncher.com/about" target="_blank">ATLauncher</a>,
-        <a href="https://multimc.org/" target="_blank">MultiMC</a>, and
-        <a href="https://prismlauncher.org" target="_blank">Prism Launcher</a>.
-        Pack creators can reference our documentation on
-        <a
-          href="https://docs.modrinth.com/docs/modpacks/creating_modpacks/"
-          target="_blank"
-          >creating modpacks</a
-        >. Join us on
-        <a href="https://discord.gg/EUHuJHt" target="_blank">Discord</a>
-        for support.
+        Modpacks are managed by CurseForge. While you can use the CurseForge
+        launcher for them, prefer using Prism Launcher or ATLauncher.
       </div>
       <div class="card search-controls">
         <div class="iconified-input">

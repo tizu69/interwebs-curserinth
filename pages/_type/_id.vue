@@ -90,10 +90,10 @@
           <span class="label"
             >download<span v-if="project.downloads !== 1">s</span></span
           >
-          <span class="stat">{{ $formatNumber(project.followers) }}</span>
+          <!-- <span class="stat">{{ $formatNumber(project.followers) }}</span>
           <span class="label"
             >follower<span v-if="project.followers !== 1">s</span></span
-          >
+          > -->
         </div>
         <div class="dates">
           <div
@@ -126,6 +126,16 @@
             <ReportIcon aria-hidden="true" />
             Report
           </nuxt-link>
+          <a
+            :href="
+              'https://www.curseforge.com/minecraft/mc-mods/' +
+              (project.slug ? project.slug.replace(/.*__/, '') : project.id)
+            "
+            target="_blank"
+            class="iconified-button"
+          >
+            CurseForge
+          </a>
           <button
             v-if="$auth.user && !$user.follows.find((x) => x.id === project.id)"
             class="iconified-button"
@@ -412,9 +422,8 @@
             <img :src="member.avatar_url" alt="profile-picture" />
           </nuxt-link>
           <div class="member-info">
-            <nuxt-link :to="'/user/' + member.user.username" class="name">
-              <p class="title-link">{{ member.name }}</p>
-            </nuxt-link>
+            <!-- <nuxt-link :to="'/user/' + member.user.username" class="name"> -->
+            <p class="title">{{ member.name }}</p>
             <p class="role">{{ member.role }}</p>
           </div>
         </div>

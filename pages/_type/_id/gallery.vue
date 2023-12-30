@@ -143,10 +143,10 @@
           </div>
         </div>
         <div class="gallery-bottom">
-          <div class="gallery-created">
+          <!-- <div class="gallery-created">
             <CalendarIcon />
             {{ $dayjs(item.created).format('MMMM D, YYYY') }}
-          </div>
+          </div> -->
           <div v-if="currentMember" class="gallery-buttons">
             <button
               v-if="editGalleryIndexes.includes(index)"
@@ -238,7 +238,7 @@
 
 <script>
 import PlusIcon from '~/assets/images/utils/plus.svg?inline'
-import CalendarIcon from '~/assets/images/utils/calendar.svg?inline'
+// import CalendarIcon from '~/assets/images/utils/calendar.svg?inline'
 import TrashIcon from '~/assets/images/utils/trash.svg?inline'
 import CrossIcon from '~/assets/images/utils/x.svg?inline'
 import RightArrowIcon from '~/assets/images/utils/right-arrow.svg?inline'
@@ -254,7 +254,7 @@ import Checkbox from '~/components/ui/Checkbox'
 
 export default {
   components: {
-    CalendarIcon,
+    // CalendarIcon,
     PlusIcon,
     Checkbox,
     EditIcon,

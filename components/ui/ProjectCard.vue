@@ -113,7 +113,7 @@
               >
             </p>
           </div>
-          <div v-if="follows" class="stat">
+          <!-- <div v-if="follows" class="stat">
             <HeartIcon aria-hidden="true" />
             <p>
               <strong>{{ $formatNumber(follows) }}</strong> follower<span
@@ -121,7 +121,7 @@
                 >s</span
               >
             </p>
-          </div>
+          </div> -->
           <div v-if="status" class="status">
             <Badge
               v-if="status === 'approved'"
@@ -157,7 +157,7 @@ import InfoIcon from '~/assets/images/utils/info.svg?inline'
 import CalendarIcon from '~/assets/images/utils/calendar.svg?inline'
 import EditIcon from '~/assets/images/utils/updated.svg?inline'
 import DownloadIcon from '~/assets/images/utils/download.svg?inline'
-import HeartIcon from '~/assets/images/utils/heart.svg?inline'
+// import HeartIcon from '~/assets/images/utils/heart.svg?inline'
 
 export default {
   name: 'ProjectCard',
@@ -168,7 +168,7 @@ export default {
     CalendarIcon,
     EditIcon,
     DownloadIcon,
-    HeartIcon,
+    // HeartIcon,
   },
   props: {
     id: {
